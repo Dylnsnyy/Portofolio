@@ -97,84 +97,84 @@
             <div class="row" id="skillsContainer">
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/html.png">
+                        <img src="img/html.png">
                         <span>HTML</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/css.png">
+                        <img src="img/css.png">
                         <span>CSS</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/js.png">
-                        <span>JS</span>
+                        <img src="img/js.png">
+                        <span>JavaScript</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/phyton.png">
+                        <img src="img/phyton.png">
                         <span>Phyton</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/c.png">
+                        <img src="img/c.png">
                         <span>C</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/cpp.png">
+                        <img src="img/cpp.png">
                         <span>C++</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/vscode.png">
+                        <img src="img/vscode.png">
                         <span>VSCode</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/ide.png">
+                        <img src="img/ide.png">
                         <span>Arduino IDE</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/github.jpg">
+                        <img src="img/github.jpg">
                         <span>Github</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/canva.png">
+                        <img src="img/canva.png">
                         <span>Canva</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/capcut.png">
+                        <img src="img/capcut.png">
                         <span>Capcut</span>
                     </div>
                 </div>
 
                 <div class="bar">
                     <div class="info">
-                        <img src="/P2/img/pr.png">
+                        <img src="img/pr.png">
                         <span>Premier Pro</span>
                     </div>
                 </div>
@@ -246,6 +246,11 @@
         // Event ketika kursor keluar dari elemen gambar profil
         profileImage.addEventListener('mouseleave', () => {
             audio.muted = true; // Suara mati lagi
+        });
+        // Event ketika pengguna mengetuk atau menyentuh elemen gambar profil (mobile)
+        profileImage.addEventListener('touchstart', () => {
+            // Periksa apakah audio sedang dalam keadaan mute atau tidak
+            audio.muted = !audio.muted; // Balikkan kondisi mute
         });
     </script>
 </body>
