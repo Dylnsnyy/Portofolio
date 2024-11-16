@@ -72,7 +72,7 @@ nav a.active{
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
-#menu-icon {
+.menu-icon {
     font-size: 3.6rem;
     color: var(--main-color);
     display: none;
@@ -219,34 +219,6 @@ span{
         box-shadow: 0 0 25px rgb(238, 130, 238); 
     }
 }
-@keyframes rgbTextColor {
-    0% {
-        color: rgb(255, 0, 0); /* Merah */
-    }
-    33% {
-        color: rgb(0, 255, 0.7); /* Hijau */
-    }
-    66% {
-        color: rgb(0, 0, 255, 0.7); /* Biru */
-    }
-    100% {
-        color: rgb(255, 0, 0.7); /* Kembali ke Merah */
-    }
-}
-@keyframes rgbBackgroundColor {
-    0% {
-        background-color: rgb(255, 0, 0.9); /* Merah */
-    }
-    33% {
-        background-color: rgb(0, 255, 0.7); /* Hijau */
-    }
-    66% {
-        background-color: rgb(0, 0, 255, 0.7); /* Biru */
-    }
-    100% {
-        background-color: rgb(255, 0, 0.7); /* Kembali ke Merah */
-    }
-}
 @keyframes cursor {
     to{
         border-left: 3px solid var(--text-color);
@@ -296,25 +268,29 @@ span{
         margin: 4rem 1rem;
         gap: 4rem;
     }
-    #menu-icon {
-        display: block;
+}
+@media only screen and (max-width:945px) {
+    .menu-icon {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
     }
     nav{
-        position: absolute;
         display: none;
+        flex-direction: column;
+        position: absolute;
         top: 100%;
         right: 0;
-        width: 40%;
+        width: 25%;
         border-left: 3px solid var(--main-color);
         border-bottom: 3px solid var(--main-color);
         border-bottom-left-radius: 2rem;
         padding: 1rem 3%;
         background-color: var(--second-bg-color);
         border-top: 0.1rem solid rgba(0,0,0,0.4);
-        display: none;
     }
     nav.active{
-        display: block;
+        display: flex;
     }
     nav a{
         display: block;
@@ -327,8 +303,6 @@ span{
         border-radius: 0.5rem;
         border-bottom: 0.5rem solid var(--main-color);
     }
-}
-@media(max-width:945px) {
     .home .home-content h3{
         font-size: 3.5rem;
     }
@@ -425,15 +399,14 @@ span{
     background-color: var(--main-color);
     height: 390px;
     border-radius: 2rem;
-    cursor: pointer;
     transition: 0.3s ease;
-}
+}/*
 .service-box:hover {
     background: transparent;
     color: var(--text-color);
     transform: scale(1.02);
     border: 1px solid var(--main-color);
-}
+}*/
 .service-box .service-info {
     display: flex;
     flex-direction: column;
@@ -509,19 +482,19 @@ span{
     gap: 1.8rem;
 }
 .skills .container .bar {
-    margin: 0.3rem 0.6rem;
+    margin: 2rem 2rem;
     padding: 10px;
     height: 230px;
     border-radius: 2rem;
     background: var(--bg-color);
     transition: 0.3s ease;
-    cursor: pointer;
-}
+    animation: rgbShadow 4s infinite;
+}/*
 .skills .container .bar:hover {
     box-shadow: 0 4px 10px var(--text-color);
     transform: scale(1.03);
     border: 1px solid var(--text-color);
-}
+}*/
 .skills .container .bar .info {
     display: flex;
     flex-direction: column;
@@ -788,6 +761,10 @@ span{
     background: black;
     color: var(--main-color);
     border-radius: 1rem;
+}
+.footer .social a:active {
+    opacity: 0.8;
+    transform: scale(0.98);
 }
 .footer ul {
     margin-top: 0;

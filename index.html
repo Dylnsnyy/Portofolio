@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>Portfolio | Sandy</title>
 </head>
 <body>
     <header>
         <a href="#home" class="logo">Sandy</a>
-
-        <i class="fa-solid fa-bars" class="menu-icon"></i>
-
-        <nav class="navbar">
-            <a href="#home" > About</a>
+        <nav id="navbar" class="navbar">
+            <a href="#home" class="active" > About</a>
             <a href="#services" >Services</a>
             <a href="#skills" >Skills</a>
             <a href="#education" >Education</a>
             <a href="#contact" >Contact</a>
         </nav>
+        <div id="menu-icon" class="menu-icon">
+            <i class="ph ph-list"></i>
+        </div>
     </header>
 
     <section class="home" id="home">
         <div class="home-img">
-            <img src="img/main.jpg" alt="">
-            <audio id="background-music" autoplay src="music/One.mp3" muted loop></audio>
+            <img src="img/2.jpg" alt="">
+            <audio id="background-music" autoplay src="music/.mp3" muted loop></audio>
         </div>
         <div class="home-content">
             <h1>Hi, It's <span>Sandy Yolanda</span></h1>
@@ -232,14 +233,14 @@
 
     <section class="contact" id="contact">
         <h2 class="heading">Contact Me</h2>
-        <form action="">
+        <form action="https://formspree.io/f/mvgoredv" method="POST">
             <div class="input-box">
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="Number" placeholder="Phone Number" required>
-                <input type="text" placeholder="Subject">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="Number" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="subject" placeholder="Subject">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Massage"></textarea>
+            <textarea name="massage" id="" cols="30" rows="10" placeholder="Your Massage"></textarea>
             <input type="submit" value="Send Massage" class="btn">
         </form>
     </section>
@@ -264,26 +265,44 @@
     </footer>
     
     <script>
-        // Dapatkan elemen audio
+        // Musik Foto Profile
         const audio = document.getElementById('background-music');
 
-        // Seleksi elemen foto profil
         const profileImage = document.querySelector('.home-img img');
 
-        // Event ketika kursor masuk ke elemen gambar profil
         profileImage.addEventListener('mouseenter', () => {
-            audio.muted = false; // Suara menyala
+            audio.muted = false;
         });
 
         // Event ketika kursor keluar dari elemen gambar profil
         profileImage.addEventListener('mouseleave', () => {
-            audio.muted = true; // Suara mati lagi
+            audio.muted = true;
         });
-        // Event ketika pengguna mengetuk atau menyentuh elemen gambar profil (mobile)
+        
         profileImage.addEventListener('touchstart', () => {
-            // Periksa apakah audio sedang dalam keadaan mute atau tidak
-            audio.muted = !audio.muted; // Balikkan kondisi mute
+            audio.muted = !audio.muted;
         });
+
+        // Nav Tampilan Mobile
+        const menuIcon = document.getElementById("menu-icon");
+        const navbar = document.getElementById("navbar");
+
+        // Fungsi untuk toggle menu
+        menuIcon.addEventListener("click", (e) => {
+            e.stopPropagation(); // Mencegah klik pada ikon menutup menu
+            navbar.classList.toggle("active");
+        });
+
+        // Fungsi untuk menutup menu jika pengguna klik di luar area menu
+        document.addEventListener("click", (e) => {
+            if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
+                navbar.classList.remove("active"); // Hapus kelas 'active' jika klik di luar
+            }
+        });
+
+        window.onload = function() {
+            window.scrollTo(0, 0); // Mengatur scroll ke posisi awal (0,0)
+        }
     </script>
 </body>
 </html>
