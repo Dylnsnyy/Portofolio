@@ -59,6 +59,20 @@ header{
     color: aliceblue;
     text-shadow: 0 0 25px white;
 }
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Pastikan partikel berada di belakang semua elemen */
+    background: #000; /* Latar belakang default jika partikel gagal dimuat */
+    overflow: hidden;
+}
+.content {
+    position: relative; /* Agar konten utama tidak terpengaruh */
+    z-index: 1;
+}
 nav a{
     font-size: 1.8rem;
     color: var(--text-color);
@@ -88,7 +102,6 @@ section{
     justify-content: center;
     align-items: center;
     gap: 8rem;
-    background-color: var(--bg-color);
 }
 .home .home-content h1{
     font-size: 6rem;
@@ -284,8 +297,8 @@ span{
         width: 25%;
         border-left: 3px solid var(--main-color);
         border-bottom: 3px solid var(--main-color);
-        border-bottom-left-radius: 2rem;
-        padding: 1rem 3%;
+        border-bottom-left-radius: 1rem;
+        padding: 1rem 5%;
         background-color: var(--second-bg-color);
         border-top: 0.1rem solid rgba(0,0,0,0.4);
     }
@@ -294,8 +307,8 @@ span{
     }
     nav a{
         display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
+        font-size: 1.5rem;
+        margin: 1rem 0;
     }
     nav a:hover,
     nav a.active{
@@ -317,15 +330,18 @@ span{
     .logo {
         font-size: 2.8rem;
     }
+    nav {
+        width: 30%;
+    }
     .home{
         flex-direction: column;
         margin: 2rem 1rem;
     }
     .home .home-content h3{
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .home .home-content p{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     .home .home-content h1{
         font-size: 2.6rem;
@@ -358,7 +374,7 @@ span{
     z-index: 1;
     animation: backgroundMove 5s infinite alternate linear;
     margin: 5rem auto; 
-    margin-bottom: 0 auto;
+    margin-bottom: 6%;
     max-width: 0 auto; 
 }
 @keyframes backgroundMove {
@@ -384,22 +400,20 @@ span{
 }
   
 /* Services */
-.services {
-    background: var(--second-bg-color);
-}
 .services-container {
     display: grid;
     width: 100%;
     margin: 0;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    gap: 2.5rem;
+    gap: 3.5rem;
 }
 .service-box {
     background-color: var(--main-color);
     height: 390px;
     border-radius: 2rem;
     transition: 0.3s ease;
+    animation: rgbShadow 6s infinite;
 }/*
 .service-box:hover {
     background: transparent;
@@ -463,9 +477,6 @@ span{
 }
 
 /* Skills */
-.skills {
-    background-color: var(--bg-color);
-}
 .skills .container {
     background: var(--second-bg-color);
     color: var(--text-color);
@@ -474,6 +485,7 @@ span{
     width: 100%;
     margin: 0 auto;
     position: relative;
+    animation: rgbShadow 6s infinite;
 }
 .skills .container .row {
     display: grid;
@@ -568,9 +580,6 @@ span{
 }
 
 /* Education */
-.education {
-    background: var(--second-bg-color);
-}
 .education .timeline {
     position: relative;
     max-width: 100%;
@@ -610,6 +619,7 @@ span{
     font-weight: 600;
     font-family: "Font Awesome\ 5 free";
     color: rgb(90, 64, 64);
+    animation: rgbShadow 5s infinite;
 }
 .education .left {
     left: 0;
@@ -648,6 +658,7 @@ span{
     background: var(--main-color);
     position: relative;
     border-radius: 6px;
+    animation: rgbShadow 5s infinite;
 }
 .education .content .tag {
     font-size: 1.5rem;

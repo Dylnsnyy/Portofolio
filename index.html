@@ -6,13 +6,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <title>Portfolio | Sandy</title>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <div class="content">
     <header>
         <a href="#home" class="logo">Sandy</a>
         <nav id="navbar" class="navbar">
-            <a href="#home" class="active" > About</a>
+            <a href="#home" > About</a>
             <a href="#services" >Services</a>
             <a href="#skills" >Skills</a>
             <a href="#education" >Education</a>
@@ -244,6 +247,7 @@
             <input type="submit" value="Send Massage" class="btn">
         </form>
     </section>
+    </div>
 
     <footer class="footer">
         <div class="social">
@@ -303,6 +307,111 @@
         window.onload = function() {
             window.scrollTo(0, 0); // Mengatur scroll ke posisi awal (0,0)
         }
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 100, // Jumlah partikel
+                    density: {
+                        enable: true,
+                        value_area: 800 // Area distribusi partikel
+                    }
+                },
+                color: {
+                    value: "#ffffff" // Warna partikel
+                },
+                shape: {
+                    type: "circle", // Bentuk partikel
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3, // Ukuran partikel
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true, // Hubungkan partikel dengan garis
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2, // Kecepatan gerak partikel
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse" // Efek saat hover
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push" // Efek saat klik
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
     </script>
 </body>
 </html>
